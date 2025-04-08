@@ -1,5 +1,9 @@
 build-container-image:
-	docker build --platform=linux/amd64 -t ns2-container-image .
+	docker build --no-cache --platform=linux/amd64 -t ns2-container-image .
 
 run-container:
-	docker run -e DISPLAY=$$DISPLAY --rm -it ns2-container-image
+	# export DISPLAY=host.docker.internal:0
+	docker run -e DISPLAY=$$DISPLAY --rm -it -v ./lab-files:/usr/cn/lab-files ns2-container-image
+
+nsg2:
+	java -jar ./resources/NSG2.1.jar
