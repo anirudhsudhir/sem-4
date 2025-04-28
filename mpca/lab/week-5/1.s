@@ -1,9 +1,14 @@
-  .data
+.global _start
+
+.section .data
 a: .word 1,2,3,4,5,6,7,8,9
 b: .word 1,2,3,4,5,6,7,8,9
 c: .word 0,0,0,0,0,0,0,0,0
 
-  .text
+.section .text
+
+_start:
+
   ldr r1, =a
   ldr r2, =b
   ldr r3, =c
